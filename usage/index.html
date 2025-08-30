@@ -1,0 +1,804 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="生成AI, generative AI, ComfyUI">
+      
+      
+        <meta name="author" content="asfdrwe">
+      
+      
+        <link rel="canonical" href="https://asfdrwe.github.io/ComfyUIGradio2/usage/">
+      
+      
+        <link rel="prev" href="../install/">
+      
+      
+        <link rel="next" href="../license/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>使い方 - ComfyUIGradio2</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ComfyUIGradio2" class="md-header__button md-logo" aria-label="ComfyUIGradio2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ComfyUIGradio2
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              使い方
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/asfdrwe/ComfyUIGRadio2/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ComfyUIGradio2" class="md-nav__button md-logo" aria-label="ComfyUIGradio2" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ComfyUIGradio2
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/asfdrwe/ComfyUIGRadio2/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    はじめに
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    インストール
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    使い方
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    使い方
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sd15sdxl" class="md-nav__link">
+    <span class="md-ellipsis">
+      文章から画像生成(SD1.5、SDXL用)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文章から画像生成(SD1.5、SDXL用)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      LoRA を使う場合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sd15sdxl_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      画像と文章から画像生成(SD1.5、SDXL用)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1flux" class="md-nav__link">
+    <span class="md-ellipsis">
+      画像1枚から画像生成(FLUX)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      画像2枚から画像生成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wan22" class="md-nav__link">
+    <span class="md-ellipsis">
+      開始画像から動画生成(Wan2.2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      開始画像と終了画像から動画生成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      拡張とカスタマイズ
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ライセンス
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sd15sdxl" class="md-nav__link">
+    <span class="md-ellipsis">
+      文章から画像生成(SD1.5、SDXL用)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文章から画像生成(SD1.5、SDXL用)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lora" class="md-nav__link">
+    <span class="md-ellipsis">
+      LoRA を使う場合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      参考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sd15sdxl_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      画像と文章から画像生成(SD1.5、SDXL用)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1flux" class="md-nav__link">
+    <span class="md-ellipsis">
+      画像1枚から画像生成(FLUX)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      画像2枚から画像生成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wan22" class="md-nav__link">
+    <span class="md-ellipsis">
+      開始画像から動画生成(Wan2.2)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      開始画像と終了画像から動画生成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      拡張とカスタマイズ
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<div><h1 id="_1">画像生成・動画生成</h1>
+<p>デフォルトでは<code>uimodule</code>フォルダに6つのモジュールがインストールされていて、
+読み込むワークフローが<code>workflow</code>フォルダに置かれています。</p>
+<p>対応する ComfyUI 用のワークフローは<code>sample</code>フォルダに同名で置かれているので、
+ComfyUI の方で開けば同じワークフローを実行できます。</p>
+<p>これらにより画像や動画を生成できます。</p>
+<ul>
+<li>文章から画像生成(SD1.5、SDXL用)(10image01.py, image01.json)</li>
+<li>画像と文章から画像生成(SD1.5、SDXL用)(10image11.py, image11.json)</li>
+<li>画像1枚から画像生成(FLUXKontext専用)(10image21.py, image21.json)</li>
+<li>画像2枚から画像生成(FLUXKontext専用)(10image22.py, image22.json)</li>
+<li>開始画像から動画生成(Wan2.2 + Lightning専用)(20video01.py, video01.json)</li>
+<li>開始画像と終了画像から動画生成(Wan2.2 + Lightning専用)(20video02.py, video02.json)</li>
+</ul>
+<h2 id="sd15sdxl">文章から画像生成(SD1.5、SDXL用)</h2>
+<p><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111</a> に似た
+UI で画像生成ができます。</p>
+<p>チェックポイントで SD1.5 や SDXL のモデルを選択します。
+LoRA は AUTOMATIC1111 と異なり、有効にチェックを入れ、使用する LoRA モデルを選択し、
+モデルへの強度と、クリップへの強度を指定してください。</p>
+<p>ComfyUI 起動後にモデルファイルを
+<code>checkpoints</code> フォルダに入れた場合や LoRA モデルを<code>loras</code> フォルダに入れた場合、
+そのままでは認識されないので、モデル更新を押してください。</p>
+<p><img alt="install06.png" src="../image/install06.png"></p>
+<p>ポジティブプロンプトに、生成したい画像に関する英単語をコンマ(,)で区切って入力し、
+ネガティブプロンプトに、生成したい画像に含みたくない要素を英単語をコンマ(,)で区切って
+入力してください。プロンプトの具体例は『sdxl プロンプト例』等で検索してください。</p>
+<p>ポジティブプロンプト例:</p>
+<pre><code>1girl, anime coloring, official art
+(少女、アニメ調、公式画像風)
+</code></pre>
+<p>ネガティブプロンプト例:</p>
+<pre><code>bad quality, worst quality, text, logo
+(低品質、最低品質、文章、ロゴ)
+</code></pre>
+<p>幅と高さに生成したい画像の大きさを指定してください。</p>
+<p>ステップ数や CFG、サンプラー、スケジューラーは必要に応じて設定してください。ノイズ除去は 1 にします。
+乱数シードは -1 にするとランダム値になり、それ以外の数値ではその数値をそのまま使用します。</p>
+<p><img alt="usage01.png" src="../image/usage01.png"></p>
+<p>生成ボタンを押せば右の生成画像に画像が生成されます。</p>
+<p><img alt="usage02.png" src="../image/usage02.png">
+<img alt="generated01.png" src="../generated/ComfyUI_00002_.png"></p>
+<p>(注:ネガティブプロンプトがミスで log になっています)</p>
+<p>生成された画像は <code>ComfyUI</code>フォルダの<code>output</code>フォルダに保存されます。</p>
+<p>ComfyUIGradio の生成画像の上で右クリックして名前を付けて保存でも保存できますが、
+ファイル名がview(拡張子なし)なので、適当なファイル名＋拡張子『.png』(tmp01.png等)で保存してください。</p>
+<h3 id="lora">LoRA を使う場合</h3>
+<p>DMD2 LoRA を使用する場合の例です。有効にチェックを入れて、DMD2 LoRA を選択し、
+強度は両方 1.0　にします。サンプラーに lcm を指定し、CFG は 1、ステップ数は
+4〜8ぐらいにしてください。</p>
+<p><img alt="usage04.png" src="../image/usage04.png">
+<img alt="usage05.png" src="../image/usage05.png"></p>
+<p>生成ボタンを押せば右の生成画像に画像が生成されます。</p>
+<p><img alt="usage06.png" src="../image/usage06.png">
+<img alt="generated02.png" src="../generated/ComfyUI_00003_.png"></p>
+<h3 id="_2">参考</h3>
+<p>ComfyUI で同じ処理を行うワークフローは<code>sample</code>フォルダの<code>image01.json</code>です。
+<img alt="usage03.png" src="../image/usage03.png"></p>
+<h2 id="sd15sdxl_1">画像と文章から画像生成(SD1.5、SDXL用)</h2>
+<p>左上の画像欄に画像をここにドロップまたはクリックして元となる画像のアップロードを
+行ってください。アップロードした画像は <code>ComfyUI</code> フォルダの <code>input</code> フォルダに
+保存されます。ここではさきほど生成した画像を使います。</p>
+<p><img alt="usage07.png" src="../image/usage07.png"></p>
+<p>残りの設定項目は文章から画像生成(SD1.5、SDXL用)と同じです。</p>
+<p>ノイズ除去を上げると元の画像から大きく変化し、ノイズ除去を下げると元の画像に
+より近い画像が生成されます。デフォルトは 0.75 にしています。1 にすると
+元の画像を参照しないのと同じになります。</p>
+<p>生成ボタンを押せば右の生成画像に画像が生成されます。</p>
+<p>ポジティブプロンプト例:</p>
+<pre><code>1girl, anime coloring, official art, angry, teeth
+(少女、アニメ調、公式画像風、怒り、歯)
+</code></pre>
+<p>ネガティブプロンプト例:</p>
+<pre><code>bad quality, worst quality, text, logo
+(低品質、最低品質、文章、ロゴ)
+</code></pre>
+<p><img alt="usage08.png" src="../image/usage08.png">
+<img alt="generated03.png" src="../generated/ComfyUI_00004_.png"></p>
+<h2 id="1flux">画像1枚から画像生成(FLUX)</h2>
+<p>FLUX Kontext を利用して元画像の特徴などを利用して別な画像を生成します。</p>
+<p><img alt="usage09.png" src="../image/usage09.png"></p>
+<p>モデルを設定してください。<code>model_download.bat</code>でモデルをダウンロードした場合は
+次のように設定してください。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>モデル名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FLUX モデル</td>
+<td>flux1-kontext-dev-Q4_K_M.gguf</td>
+</tr>
+<tr>
+<td>テキストエンコーダ1</td>
+<td>clip_l.safetensors</td>
+</tr>
+<tr>
+<td>テキストエンコーダ2</td>
+<td>t5-v1_1-xxl-encoder-Q4_K_M.gguf</td>
+</tr>
+<tr>
+<td>VAE</td>
+<td>clip_l.safetensors</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="usage10.png" src="../image/usage10.png"></p>
+<p><a href="https://comfyui-wiki.com/ja/tutorial/advanced/image/flux/flux-1-kontext">ComfyUIのWiki</a>より
+<img alt="この画像" src="https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/flux/kontext/dev/rabbit.jpg">
+をダウンロードして入力画像にアップロードしてください。</p>
+<p>入力できる項目は画像と文章から画像生成(SD1.5、SDXL用)とだいたい同じですが、ポジティブプロンプトは
+英単語を区切って指定するのではなく、英文で書きます。ネガティブプロンプトは使えません。</p>
+<p>ポジティブプロンプト例:</p>
+<pre><code>Using this elegant style, create a portrait of a swan wearing a pearl tiara
+and lace collar, maintaining the same refined quality and soft color tones.
+(この優雅なスタイルを使用して、白鳥がパールのティアラとレースの襟を身に着けた肖像画を作成し、
+同じ洗練された品質と柔らかな色調を維持してください。)
+</code></pre>
+<p>生成ボタンを押せば画像が生成されます。SDXL モデルより画像生成に時間がかかります。</p>
+<p><img alt="usage11.png" src="../image/usage11.png">
+<img alt="generated03.png" src="../generated/ComfyUI_00006_.png"></p>
+<p>白鳥の右手？が変ですが、元の画像の画風を保ちながらプロンプトの英文に従った画像が生成されています。</p>
+<h2 id="2">画像2枚から画像生成</h2>
+<p>2 枚の画像の特徴を利用して別な画像を生成します。</p>
+<p>モデルは『画像1枚から画像生成(FLUX)』と同じ設定にします。</p>
+<p>『文章から画像生成(SD1.5、SDXL用)』で生成した 2 人の少女画像をアップロードします。</p>
+<p><img alt="usage12.png" src="../image/usage12.png"></p>
+<p>次のプロンプトで画像を生成してください。画像のサイズは自動的に設定されます。画像を
+並べる順番は<code>Dropdown</code>で指定できます。</p>
+<p>ポジティブプロンプト例:</p>
+<pre><code>Place both cute characters together in one scene where they are hugging.
+(両方の可愛いキャラクターを一つのシーンに配置し、抱き合っている姿を描いてください)
+</code></pre>
+<p><img alt="usage13.png" src="../image/usage13.png"></p>
+<p>生成ボタンを押せば画像が生成されます。</p>
+<p><img alt="usage14.png" src="../image/usage14.png">
+<img alt="generated04.png" src="../generated/ComfyUI_00007_.png"></p>
+<h2 id="wan22">開始画像から動画生成(Wan2.2)</h2>
+<p>画面サイズによってはタブがはみ出るので、右上の…を押してください。</p>
+<p><img alt="usage15.png" src="../image/usage15.png"></p>
+<p>開始画像と文章から動画を生成します。</p>
+<p>モデルを設定してください。<code>model_download.bat</code>でモデルをダウンロードした場合は
+次のように設定してください。LoRA は high 用 low 用それぞれ 1 つずつ指定できます。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>モデル名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wan モデル high</td>
+<td>wan2.2_i2v_high_noise_14B_Q4_K_M.gguf</td>
+</tr>
+<tr>
+<td>Wan モデル low</td>
+<td>wan2.2_i2v_low_noise_14B_Q4_K_M.gguf</td>
+</tr>
+<tr>
+<td>テキストエンコーダ</td>
+<td>umt5-xxl-encoder-Q4_K_M.gguf</td>
+</tr>
+<tr>
+<td>VAE</td>
+<td>wan_2.1_vae.safetensors(Wan 2.2 ですが Wan 2.1 用の VAE で正しいです)</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="usage16.png" src="../image/usage16.png"></p>
+<p>開始画像をアップロードしてください。この例では『文章から画像生成(SD1.5、SDXL用)』で生成した画像を使います。</p>
+<p>ポジティブプロンプトは、英語(または中国語)の文章で入力します。ネガティブプロンプトは使えません。</p>
+<p>幅と高さとフレーム数を指定してください。フレーム数は動画の長さです。
+1 秒 16 フレームなので、17 フレームで約 1 秒、33 フレームで約 2 秒、49 フレームで
+約 3 秒となります。</p>
+<p>wan2.2_i2v_lightx2v_4steps Lora が常に適用され、ステップ数 4、CFG 1、サンプラー euler、
+スケジューラ simple は固定で動画生成します。</p>
+<p>ここでは横:360 縦:640 時間:49 フレーム 約 3 秒で の動画を生成します。</p>
+<p>ポジティブプロンプト例:</p>
+<pre><code>A girl is talking with smile.
+(女の子が笑顔で話しています)
+</code></pre>
+<p><img alt="usage17.png" src="../image/usage17.png"></p>
+<p>生成ボタンを押せば動画が生成されます。画像より生成時間がかかります。</p>
+<p><img alt="usage18.png" src="../image/usage18.png">
+<div class="video-container"><iframe src="../generated/Video_00001_.mp4" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
+<h2 id="_3">開始画像と終了画像から動画生成</h2>
+<p>開始画像と終了画像と文章から動画を生成します。</p>
+<p>モデルは『開始画像から動画生成(Wan2.2)』と同じように設定してください。</p>
+<p>開始画像と終了画像をアップロードしてください。この例では『文章から画像生成(SD1.5、SDXL用)』で
+生成した笑顔画像と怒り画像を使います。</p>
+<p><img alt="usage19.png" src="../image/usage19.png"></p>
+<p>設定項目は『開始画像から動画生成(Wan2.2)』と同じです。</p>
+<p>横:360 縦:640 時間:49 フレーム 約 3 秒で の動画を生成します。</p>
+<p>ポジティブプロンプト例:</p>
+<pre><code>A girl is talking and going to be angry.
+(女の子が話していて、怒りそうになっています。)
+</code></pre>
+<p><img alt="usage20.png" src="../image/usage20.png"></p>
+<p>生成ボタンを押せば動画が生成されます。</p>
+<p><img alt="usage21.png" src="../image/usage21.png">
+<div class="video-container"><iframe src="../generated/Video_00002_.mp4" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
+<h2 id="_4">拡張とカスタマイズ</h2>
+<p><code>uimodule</code>フォルダ以下に、<code>10image01.py</code> などと同様の形式で.pyファイルを用意すれば自動的に
+読み込まれます。</p>
+<p>サンプルとして <code>test</code> フォルダ以下に、10image51.py と workflow/image51.json を
+用意しました。<code>uimodule</code>フォルダ に 10image51.py、<code>workflow</code>フォルダに
+workflow/image51.json をコピーして、ComfyUIGradio2 を再起動すれば、
+『文章から画像を生成01』というタブが追加されるはずです。他と異なり、画像生成時にノードごとの
+進捗状況が表示されるような修正がされています。</p>
+<p>危険なモジュールも実行可能なので、セキュリティには気を付けてください。不用意に
+<code>uimodule</code>フォルダ以下に*.pyファイルを置かないようにしてください。</p>
+<p>拡張モジュールの開発については、<a href="https://qiita.com/asfdrwe/items/569c9dab826ea6b03718">こちら</a>を参照してください。</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright (c) 2025 asfdrwe, CC BY 4.0
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
