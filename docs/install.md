@@ -43,7 +43,7 @@ ComfyUI を先に起動してください。ComfyUI のポータブル版や Com
 
 ![install04.png](image/install04.png)
 
-次に `ComfyUIGradio2` フォルダ を開き、`run_comfyuigradio2.bat`をダブル
+次に `ComfyUIGradio2` フォルダの`ComfyUIGradio2` フォルダ を開き、`run_comfyuigradio2.bat`をダブル
 クリックしてください。 ターミナルで ComfyUIGradio2 が起動し、ブラウザが開かれます。
 
 ![install05.png](image/install05.png)
