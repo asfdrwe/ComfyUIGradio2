@@ -1,0 +1,19 @@
+site_name: ComfyUIGradio2
+site_url: "https://asfdrwe.github.io/ComfyUIGradio2/"
+repo_url: "https://github.com/asfdrwe/ComfyUIGRadio2/"
+site_description: 生成AI, generative AI, ComfyUI
+site_author: asfdrwe
+copyright: 'Copyright (c) 2025 asfdrwe, CC BY 4.0'
+
+nav:
+  - 'はじめに': index.md
+  - 'インストール': install.md
+  - '使い方': usage.md
+  - 'ライセンス': license.md
+
+plugins: 
+  - mkdocs-video
+
+theme: 
+  name: material
+  locale: ja
