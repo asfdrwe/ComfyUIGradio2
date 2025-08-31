@@ -358,6 +358,48 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
+      動作がおかしい場合
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="動作がおかしい場合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      モデルがない
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行時にエラーが出る場合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comfyui-comfyuigradio2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComfyUI の出力と ComfyUIGradio2 の生成時の表示が食い違うなど動作が変
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
       拡張とカスタマイズ
     </span>
   </a>
@@ -500,6 +542,48 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      動作がおかしい場合
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="動作がおかしい場合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      モデルがない
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行時にエラーが出る場合
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comfyui-comfyuigradio2" class="md-nav__link">
+    <span class="md-ellipsis">
+      ComfyUI の出力と ComfyUIGradio2 の生成時の表示が食い違うなど動作が変
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       拡張とカスタマイズ
     </span>
@@ -731,7 +815,20 @@ and lace collar, maintaining the same refined quality and soft color tones.
 <p>生成ボタンを押せば動画が生成されます。</p>
 <p><img alt="usage21.png" src="../image/usage21.png">
 <div class="video-container"><iframe src="../generated/Video_00002_.mp4" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div></p>
-<h2 id="_4">拡張とカスタマイズ</h2>
+<h2 id="_4">動作がおかしい場合</h2>
+<h3 id="_5">モデルがない</h3>
+<p>『文章から画像生成(SD1.5、SDXL用)』用のモデルは model_download.bat でダウンロード
+されないので、自身でダウンロードしてください。</p>
+<h3 id="_6">実行時にエラーが出る場合</h3>
+<p>画像や動画のサイズは 8 の倍数か 16 の倍数でないとダメな場合があります。
+サイズが大きすぎたり、小さすぎたりしてもエラーになります。</p>
+<h3 id="comfyui-comfyuigradio2">ComfyUI の出力と ComfyUIGradio2 の生成時の表示が食い違うなど動作が変</h3>
+<p>Gradio でファイルを扱う際のファイルのキャッシュは Windows の場合標準では
+<code>C:\ユーザ\ユーザ名\AppData\Local\gradio</code> です。</p>
+<p>ComfyUI の出力と ComfyUIGradio2 の生成時の表示が食い違うなど、動作が
+おかしくなっている場合、このフォルダを削除し、ブラウザのキャッシュを
+削除し、ComfyUI と ComfyUIGradio2 を再起動してください。</p>
+<h2 id="_7">拡張とカスタマイズ</h2>
 <p><code>uimodule</code>フォルダ以下に、<code>10image01.py</code> などと同様の形式で.pyファイルを用意すれば自動的に
 読み込まれます。</p>
 <p>サンプルとして <code>test</code> フォルダ以下に、10image51.py と workflow/image51.json を
