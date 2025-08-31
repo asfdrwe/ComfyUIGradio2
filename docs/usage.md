@@ -253,6 +253,28 @@ A girl is talking and going to be angry.
 ![usage21.png](image/usage21.png)
 ![type:video](generated/Video_00002_.mp4)
 
+
+## 動作がおかしい場合
+
+### モデルがない
+
+『文章から画像生成(SD1.5、SDXL用)』用のモデルは model_download.bat でダウンロード
+されないので、自身でダウンロードしてください。
+
+### 実行時にエラーが出る場合
+
+画像や動画のサイズは 8 の倍数か 16 の倍数でないとダメな場合があります。
+サイズが大きすぎたり、小さすぎたりしてもエラーになります。
+
+### ComfyUI の出力と ComfyUIGradio2 の生成時の表示が食い違うなど動作が変
+
+Gradio でファイルを扱う際のファイルのキャッシュは Windows の場合標準では
+`C:\ユーザ\ユーザ名\AppData\Local\gradio` です。
+
+ComfyUI の出力と ComfyUIGradio2 の生成時の表示が食い違うなど、動作が
+おかしくなっている場合、このフォルダを削除し、ブラウザのキャッシュを
+削除し、ComfyUI と ComfyUIGradio2 を再起動してください。
+
 ## 拡張とカスタマイズ
 
 `uimodule`フォルダ以下に、`10image01.py` などと同様の形式で.pyファイルを用意すれば自動的に
@@ -268,3 +290,5 @@ workflow/image51.json をコピーして、ComfyUIGradio2 を再起動すれば�
 `uimodule`フォルダ以下に*.pyファイルを置かないようにしてください。
 
 拡張モジュールの開発については、[こちら](https://qiita.com/asfdrwe/items/569c9dab826ea6b03718)を参照してください。
+
+
