@@ -269,7 +269,8 @@ A girl is talking and going to be angry.
 ### ComfyUI の出力と ComfyUIGradio2 の生成時の表示が食い違うなど動作が変
 
 Gradio でファイルを扱う際のファイルのキャッシュは Windows の場合標準では
-`C:\ユーザ\ユーザ名\AppData\Local\gradio` です。
+`C:\ユーザ\ユーザ名\AppData\Local\gradio` です(隠しフォルダなのでエクスプローラーの
+オプションを設定しないと表示されません)。
 
 ComfyUI の出力と ComfyUIGradio2 の生成時の表示が食い違うなど、動作が
 おかしくなっている場合、このフォルダを削除し、ブラウザのキャッシュを
