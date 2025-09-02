@@ -13,6 +13,7 @@ nav:
 
 plugins: 
   - mkdocs-video
+  - mkdocs-audio
 
 theme: 
   name: material

@@ -296,7 +296,7 @@
   },
   "113": {
     "inputs": {
-      "filename_prefix": "ComfyUI",
+      "filename_prefix": "Video",
       "format": "auto",
       "codec": "auto",
       "video": [

@@ -15,6 +15,10 @@ ComfyUI の方で開けば同じワークフローを実行できます。
 - 開始画像から動画生成(Wan2.2 + Lightning専用)(20video01.py, video01.json)
 - 開始画像と終了画像から動画生成(Wan2.2 + Lightning専用)(20video02.py, video02.json)
 
+### 追加(2025/9/2)
+- 開始画像と音声と文章から動画生成(5秒)(Wan2.2 S2V + Lightning専用)(20video21.py, video21.json)
+- 開始画像と音声と文章から動画生成(15秒)(Wan2.2 S2V + Lightning専用)(20video22.py, video22.json)
+
 ## 文章から画像生成(SD1.5、SDXL用)
 
 [AUTOMATIC1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui) に似た
@@ -253,6 +257,28 @@ A girl is talking and going to be angry.
 ![usage21.png](image/usage21.png)
 ![type:video](generated/Video_00002_.mp4)
 
+## 開始画像と音声と文章から動画生成(5秒用) (15秒用) (2025/9/2追加)
+Wan 2.2 S2V を利用して開始画像に対して音声に対応する口パクなどの動画を
+作成できます。
+
+`model_download_addition.bat` をダブルクリックすると Wan 2.2 S2V GGUF、
+wan2.2_t2v_lightx2v LoRA、wav2vec2_large_english_fp16.safetensors をダウンロード
+するので、models フォルダごと ComfyUI のフォルダに移動させてください。
+
+参照画像に開始画像をアップロードし、参照音声に使用する音声をアップロードしてください。
+ポジティブプロンプトに動作の内容を英文で書き、幅や高さをしてしてください。
+音声の長さに合わせて 5 秒用と 15 秒用からより近い長さの方を利用してください。
+
+画像と音声例
+![usage24.png](image/usage24.png)
+![type:audio](image/audio01.wav)
+[Style-Bert-VITS2](https://github.com/litagin02/Style-Bert-VITS2/) で音声合成。
+
+![usage22.png](image/usage22.png)
+![usage23.png](image/usage23.png)
+
+生成ボタンを押せば動画が生成されます。
+![type:video](generated/Video_00003_.mp4)
 
 ## 動作がおかしい場合
 
