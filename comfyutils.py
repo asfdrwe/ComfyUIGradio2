@@ -202,6 +202,10 @@ def get_lora(server_address):
     request =  urllib.request.Request("http://{}/models/loras".format(server_address))
     return json.loads(urllib.request.urlopen(request).read())
 
+def get_audioencoder(server_address):
+    request =  urllib.request.Request("http://{}/models/audio_encoders".format(server_address))
+    return json.loads(urllib.request.urlopen(request).read())
+
 def get_sampler(server_address):
     request =  urllib.request.Request("http://{}/object_info/KSampler".format(server_address))
     data = json.loads(urllib.request.urlopen(request).read())

@@ -1,0 +1,331 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 49914515855332,
+      "steps": [
+        "103",
+        0
+      ],
+      "cfg": [
+        "105",
+        0
+      ],
+      "sampler_name": "uni_pc",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "54",
+        0
+      ],
+      "positive": [
+        "93",
+        0
+      ],
+      "negative": [
+        "93",
+        1
+      ],
+      "latent_image": [
+        "93",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Kサンプラー"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "The man is playing the guitar. He looks down at his hands playing the guitar and sings affectionately and gently.",
+      "clip": [
+        "183",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "183",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "39": {
+    "inputs": {
+      "vae_name": "wan_2.1_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAEを読み込む"
+    }
+  },
+  "52": {
+    "inputs": {
+      "image": "input.jpg"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "画像を読み込む"
+    }
+  },
+  "54": {
+    "inputs": {
+      "shift": 8,
+      "model": [
+        "107",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": {
+      "title": "モデルサンプリングSD3"
+    }
+  },
+  "56": {
+    "inputs": {
+      "audio_encoder": [
+        "57",
+        0
+      ],
+      "audio": [
+        "58",
+        0
+      ]
+    },
+    "class_type": "AudioEncoderEncode",
+    "_meta": {
+      "title": "AudioEncoderEncode"
+    }
+  },
+  "57": {
+    "inputs": {
+      "audio_encoder_name": "wav2vec2_large_english_fp16.safetensors"
+    },
+    "class_type": "AudioEncoderLoader",
+    "_meta": {
+      "title": "AudioEncoderLoader"
+    }
+  },
+  "58": {
+    "inputs": {
+      "audio": "video_wan_wan2.2_s2v_input_audio.MP3",
+      "audioUI": ""
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "音声を読み込む"
+    }
+  },
+  "80": {
+    "inputs": {
+      "samples": [
+        "95",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAEデコード"
+    }
+  },
+  "82": {
+    "inputs": {
+      "fps": 16,
+      "images": [
+        "96",
+        0
+      ],
+      "audio": [
+        "58",
+        0
+      ]
+    },
+    "class_type": "CreateVideo",
+    "_meta": {
+      "title": "動画を作成"
+    }
+  },
+  "93": {
+    "inputs": {
+      "width": 640,
+      "height": 640,
+      "length": [
+        "104",
+        0
+      ],
+      "batch_size": 1,
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ],
+      "audio_encoder_output": [
+        "56",
+        0
+      ],
+      "ref_image": [
+        "52",
+        0
+      ]
+    },
+    "class_type": "WanSoundImageToVideo",
+    "_meta": {
+      "title": "WanSoundImageToVideo"
+    }
+  },
+  "94": {
+    "inputs": {
+      "dim": "t",
+      "index": 0,
+      "amount": 1,
+      "samples": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "LatentCut",
+    "_meta": {
+      "title": "LatentCut"
+    }
+  },
+  "95": {
+    "inputs": {
+      "dim": "t",
+      "samples1": [
+        "94",
+        0
+      ],
+      "samples2": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "LatentConcat",
+    "_meta": {
+      "title": "LatentConcat"
+    }
+  },
+  "96": {
+    "inputs": {
+      "batch_index": [
+        "100",
+        0
+      ],
+      "length": 4096,
+      "image": [
+        "80",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "バッチから画像を取得"
+    }
+  },
+  "100": {
+    "inputs": {
+      "value": 1
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Batch sizes"
+    }
+  },
+  "103": {
+    "inputs": {
+      "value": 4
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Steps"
+    }
+  },
+  "104": {
+    "inputs": {
+      "value": 77
+    },
+    "class_type": "PrimitiveInt",
+    "_meta": {
+      "title": "Chunk Length"
+    }
+  },
+  "105": {
+    "inputs": {
+      "value": 1
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "CFG"
+    }
+  },
+  "107": {
+    "inputs": {
+      "lora_name": "wan2.2_t2v_lightx2v_4steps_lora_v1.1_high_noise.safetensors",
+      "strength_model": 1,
+      "model": [
+        "182",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoRAローダーモデルのみ"
+    }
+  },
+  "113": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "format": "auto",
+      "codec": "auto",
+      "video": [
+        "82",
+        0
+      ]
+    },
+    "class_type": "SaveVideo",
+    "_meta": {
+      "title": "ビデオを保存"
+    }
+  },
+  "182": {
+    "inputs": {
+      "unet_name": "Wan2.2-S2V-14B-Q4_K_M.gguf"
+    },
+    "class_type": "UnetLoaderGGUF",
+    "_meta": {
+      "title": "Unet Loader (GGUF)"
+    }
+  },
+  "183": {
+    "inputs": {
+      "clip_name": "umt5-xxl-encoder-Q4_K_M.gguf",
+      "type": "wan"
+    },
+    "class_type": "CLIPLoaderGGUF",
+    "_meta": {
+      "title": "CLIPLoader (GGUF)"
+    }
+  }
+}
