@@ -15,9 +15,12 @@ ComfyUI の方で開けば同じワークフローを実行できます。
 - 開始画像から動画生成(Wan2.2 + Lightning専用)(20video01.py, video01.json)
 - 開始画像と終了画像から動画生成(Wan2.2 + Lightning専用)(20video02.py, video02.json)
 
-### 追加(2025/9/2)
+### 追加1(2025/9/2)
 - 開始画像と音声と文章から動画生成(5秒)(Wan2.2 S2V + Lightning専用)(20video21.py, video21.json)
 - 開始画像と音声と文章から動画生成(15秒)(Wan2.2 S2V + Lightning専用)(20video22.py, video22.json)
+
+### 追加2(2025/9/10)
+- 画像を文章に基づき編集(Qwen-Image-Edit専用)(10image31.py)
 
 ## 文章から画像生成(SD1.5、SDXL用)
 
@@ -279,6 +282,41 @@ wan2.2_t2v_lightx2v LoRA、wav2vec2_large_english_fp16.safetensors をダウン�
 
 生成ボタンを押せば動画が生成されます。
 ![type:video](generated/Video_00003_.mp4)
+
+## 画像を文章に基づき編集・生成 (2025/9/10追加)
+Qwen-Image-Edit を利用して文章に基づき画像を編集・生成できます。
+
+`model_download_addition.bat` をダブルクリックすると Qwen-Image-Edit GGUF、
+Qwen2.5-VL-7B-Instruct GGUF、Qwen2.5-VL-7B-Instruct-mmproj-BF16、
+Qwen_Image-VAE.safetensors、Qwen-Image-Edit-Lightning-4steps-V1.0-bf16 をダウンロード
+するので、models フォルダごと ComfyUI のフォルダに移動させてください。
+
+参照画像に開始画像をアップロードし、ポジティブプロンプトに編集内容を
+日本語または英語または中国語で書いてください。中国語で書くのが一番画像に
+反映されやすく、次が英語です。日本語で書いた場合うまくいかない場合が
+多いので、そういう場合は Grok 等で編集内容を英語や中国語に翻訳して
+プロンプト欄に入れてください。
+
+入力画像が大きすぎたり小さすぎたりするとうまく編集できないので、入力画像の拡大縮小後の
+総画素数(100万画素単位)を指定してください。標準では1.0(100万画素)に拡大縮小します。
+
+画像とプロンプト例
+
+![usage25.png](image/usage25.png)
+
+```
+画像の少女を左向きにしてください。
+```
+```
+画像の背景を削除して、白背景にしてください。
+```
+
+編集ボタンを押せば画像が生成されます。
+![generated05.png](generated/ComfyUI_00008_.png)
+![generated06.png](generated/ComfyUI_00009_.png)
+
+画像編集だけでなく、参照画像の画風を利用して画像生成するなどさまざまな活用方法があるので、『Qwen image edit 活用例』などで検索してみてください。
+例えば、[「Qwen Image Edit」を使って何ができるか簡単に紹介します](https://note.com/yukyu_haruka/n/n70d4726027fc)などが参考になります。
 
 ## 動作がおかしい場合
 
