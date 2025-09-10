@@ -463,19 +463,20 @@
 <a href="https://github.com/city96/ComfyUI-GGUF">ComfyUI-GGUF</a>と
 <a href="https://github.com/kijai/ComfyUI-DepthAnythingV2">ComfyUI-DepthAnythingV2</a>
 をインストールしてください。</p>
-<p><a href="https://huggingface.co/asfdrwe/WAI14DMD2-GGUF/resolve/main/ComfyUIGradio2.zip">こちら</a>をクリックして
+<p><a href="https://huggingface.co/asfdrwe/WAI14DMD2-GGUF/resolve/main/ComfyUIGradio2-20250910.zip">こちら</a>をクリックして
 ComfyUIGradio2 をダウンロードしてください。ComfyUIGradio2 をインストールしたい
 フォルダにファイルを移動させ、右クリックしすべて展開を選びファイルを展開してください。
 ComfyGradio のフォルダに展開するとこうなります。</p>
 <p><img alt="install01.png" src="../image/install01.png"></p>
 <h2 id="_2">モデルのダウンロード</h2>
-<p>FLUX KontextとWan2.2のモデルをまとめてダウンロードできるツールを用意してあります。
+<p>FLUX Kontext と Wan2.2 I2V と Wan2.2 S2V と Qwen Image Edit のモデルをまとめて
+ダウンロードできるツールを用意してあります。
 ComfyUIGradio2 フォルダ内にある<code>model_download.bat</code> をダブルクリックして実行し、
-<code>models</code> フォルダを丸ごと ComfyUI フォルダに移動させてください。
-ComfyUIGradio に含まれる ComfyUI を利用している場合、モデルファイルが 2 つ
+<code>models</code> フォルダを丸ごと ComfyUI フォルダに移動させてください。</p>
+<p>ComfyUIGradio に含まれる ComfyUI を利用している場合、モデルファイルが 2 つ
 重複していますが、上書きして問題ありません。</p>
 <p><img alt="install02.png" src="../image/install02.png"></p>
-<p>33.5GB ダウンロードするのでストレージの容量と通信回線容量に気を付けてください。</p>
+<p>50GB 程度ダウンロードするので、ストレージの容量と通信回線容量に気を付けてください。</p>
 <p>SDXL モデルは
 <a href="https://civitai.com/models/827184/wai-nsfw-illustrious-sdxl">WAI-NSFW-illustrious-SDXL-v14.0</a>
 などをダウンロードして、ComfyUI をインストールしたフォルダの models フォルダの checkpoints フォルダに移動させてください。</p>
@@ -529,8 +530,9 @@ python3.13 -m venv venv
 pip install -r requirements.txt
 </code></pre>
 <h2 id="_6">モデル</h2>
-<p>適当な SDXL モデルとFLUX KontextとWan2.2のモデルをダウンロードして ComfyUI の<code>models</code>フォルダ以下の
-適切なフォルダに移動させてください。</p>
+<p>適当な SDXL モデルと、FLUX Kontext と Wan2.2 I2V と Wan2.2 S2V と Qwen Image Edit の
+モデルをダウンロードして ComfyUI の<code>models</code>フォルダ以下の適切なフォルダに
+移動させてください。</p>
 <table>
 <thead>
 <tr>
@@ -548,15 +550,15 @@ pip install -r requirements.txt
 <td>loras</td>
 </tr>
 <tr>
-<td>FLUX-Kontext-dev GGUF と Wan2.2_I2V-A14B-GGUF</td>
-<td>diffusion_models</td>
+<td>FLUX-Kontext-dev GGUF と Wan2.2_I2V-A14B-GGUF と Wan2.2-S2V-14 と Qwen_Image_Edit</td>
+<td>diffusion_models または unet</td>
 </tr>
 <tr>
-<td>t5-xxl GGUF と umt5-xxl-encoder-gguf</td>
-<td>clip</td>
+<td>t5-xxl GGUF と umt5-xxl-encoder-gguf と Qwen2.5-VL-7B-Instruct とQwen2.5-VL-7B-Instruct-mmproj</td>
+<td>clip または text_encoders</td>
 </tr>
 <tr>
-<td>FLUX-VAE と wan_2.1_vae</td>
+<td>FLUX-VAE と wan_2.1_vae と Qwen_Image-VAE</td>
 <td>vae</td>
 </tr>
 </tbody>
@@ -573,12 +575,24 @@ pip install -r requirements.txt
 <li><a href="https://huggingface.co/comfyanonymous/flux_text_encoders/tree/main">clip_l</a></li>
 <li><a href="https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged">FLUX-VAE</a></li>
 </ul>
-<h3 id="wan-22">Wan 2.2</h3>
+<h3 id="wan-22-i2v">Wan 2.2 I2V</h3>
 <ul>
 <li><a href="https://huggingface.co/bullerwins/Wan2.2-I2V-A14B-GGUF">Wan2.2_I2V-A14B-GGUF</a></li>
 <li><a href="https://huggingface.co/city96/umt5-xxl-encoder-gguf">umt5-xxl-encoder-gguf</a></li>
 <li><a href="https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged">wan_2.1_vae</a>)</li>
 <li><a href="https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/loras">Wan2.2 Lightx2v LoRA</a></li>
+</ul>
+<h3 id="wan-22-s2v">Wan 2.2 S2V</h3>
+<ul>
+<li><a href="https://huggingface.co/QuantStack/Wan2.2-S2V-14B-GGUF">Wan2.2-S2V-14B-GGUF)</a></li>
+<li><a href="https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/loras">Wan2.2 Lightx2v LoRA</a></li>
+<li><a href="https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/audio_encoders">wav2vec2_large_english</a></li>
+</ul>
+<h3 id="qwen-image-edit">Qwen Image Edit</h3>
+<ul>
+<li><a href="https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF">Qwen-Image-Edit-GGUF と Qwen_Image-VAE</a></li>
+<li><a href="https://huggingface.co/lightx2v/Qwen-Image-Lightning">Qwen-Image-Edit-Lightning</a></li>
+<li><a href="https://huggingface.co/unsloth/Qwen2.5-VL-7B-Instruct-GGUF">Qwen2.5-VL-7B-Instruct と Qwen2.5-VL-7B-Instruct-mmproj</a></li>
 </ul>
 <h2 id="_7">実行</h2>
 <p>ターミナルで ComfyUI を起動してください。別のターミナルで</p>
