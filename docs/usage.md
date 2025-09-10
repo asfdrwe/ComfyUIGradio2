@@ -14,12 +14,8 @@ ComfyUI の方で開けば同じワークフローを実行できます。
 - 画像2枚から画像生成(FLUXKontext専用)(10image22.py, image22.json)
 - 開始画像から動画生成(Wan2.2 + Lightning専用)(20video01.py, video01.json)
 - 開始画像と終了画像から動画生成(Wan2.2 + Lightning専用)(20video02.py, video02.json)
-
-### 追加1(2025/9/2)
 - 開始画像と音声と文章から動画生成(5秒)(Wan2.2 S2V + Lightning専用)(20video21.py, video21.json)
 - 開始画像と音声と文章から動画生成(15秒)(Wan2.2 S2V + Lightning専用)(20video22.py, video22.json)
-
-### 追加2(2025/9/10)
 - 画像を文章に基づき編集(Qwen-Image-Edit専用)(10image31.py)
 
 ## 文章から画像生成(SD1.5、SDXL用)
@@ -260,13 +256,9 @@ A girl is talking and going to be angry.
 ![usage21.png](image/usage21.png)
 ![type:video](generated/Video_00002_.mp4)
 
-## 開始画像と音声と文章から動画生成(5秒用) (15秒用) (2025/9/2追加)
+## 開始画像と音声と文章から動画生成(5秒用) (15秒用)
 Wan 2.2 S2V を利用して開始画像に対して音声に対応する口パクなどの動画を
 作成できます。
-
-`model_download_addition.bat` をダブルクリックすると Wan 2.2 S2V GGUF、
-wan2.2_t2v_lightx2v LoRA、wav2vec2_large_english_fp16.safetensors をダウンロード
-するので、models フォルダごと ComfyUI のフォルダに移動させてください。
 
 参照画像に開始画像をアップロードし、参照音声に使用する音声をアップロードしてください。
 ポジティブプロンプトに動作の内容を英文で書き、幅や高さをしてしてください。
@@ -283,13 +275,8 @@ wan2.2_t2v_lightx2v LoRA、wav2vec2_large_english_fp16.safetensors をダウン�
 生成ボタンを押せば動画が生成されます。
 ![type:video](generated/Video_00003_.mp4)
 
-## 画像を文章に基づき編集・生成 (2025/9/10追加)
+## 画像を文章に基づき編集・生成
 Qwen-Image-Edit を利用して文章に基づき画像を編集・生成できます。
-
-`model_download_addition2.bat` をダブルクリックすると Qwen-Image-Edit GGUF、
-Qwen2.5-VL-7B-Instruct GGUF、Qwen2.5-VL-7B-Instruct-mmproj-BF16、
-Qwen_Image-VAE.safetensors、Qwen-Image-Edit-Lightning-4steps-V1.0-bf16 をダウンロード
-するので、models フォルダごと ComfyUI のフォルダに移動させてください。
 
 参照画像に開始画像をアップロードし、ポジティブプロンプトに編集内容を
 日本語または英語または中国語で書いてください。中国語で書くのが一番画像に

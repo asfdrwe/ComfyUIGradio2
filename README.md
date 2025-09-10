@@ -32,13 +32,16 @@ pip install -r requirements.txt
 ```
 
 ## モデルのダウンロード
-画像生成は2種類あり、片方ではSD1.5 及びに SDXL のチェックポイントモデルと
-その LoRA を使用できます。もう片方は FLUX Kontext 専用です。動画生成は
-Wan 2.2 Lightx2v 専用です。
+画像生成は3種類あり、一つはSD1.5 及びに SDXL のチェックポイントモデルと
+その LoRA を使用できます。一つは FLUX Kontext 専用です。
+もう一つは Qwen Image Edit 専用です。
+
+動画生成は Wan 2.2 I2v Light と Wan 2.2 S2V です。
 
 SDXL モデルは chekcpoints 以下、LoRA(DMD2やWan2.2 Lightning LoRA) は loras 以下、
-FLUX-Kontext-dev GGUF と Wan2.2_I2V-A14B-GGUF は diffusion_models 以下、 
-t5-xxl GGUF と umt5-xxl-encoder-gguf は clip 以下、FLUX-VAE と wan_2.1_vae は
+FLUX-Kontext や Qwen Image Edit や Wan2.2 の GGUF は diffusion_models または
+unet 以下、t5-xxl と umt5-xxl-encoder と Qwen2.5-VL-7B-Instruct の GGUF は 
+clip または text_encoders 以下、FLUX-VAE と wan_2.1_vae と Qwen_Image-VAE は
 vae 以下に移動させてください。
 
 ### SDXL モデルと LoRA の例
@@ -53,11 +56,21 @@ vae 以下に移動させてください。
 - [clip_l](https://huggingface.co/comfyanonymous/flux_text_encoders/)
 - [FLUX-VAE](https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged)
 
-### Wan 2.2
+### Wan 2.2 I2V
 - [Wan2.2_I2V-A14B-GGUF](https://huggingface.co/bullerwins/Wan2.2-I2V-A14B-GGUF)
 - [umt5-xxl-encoder-gguf](https://huggingface.co/city96/umt5-xxl-encoder-gguf)
 - [wan_2.1_vae](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged))
 - [Wan2.2 Lightx2v LoRA](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/loras)
+
+### Wan 2.2 S2V
+- [Wan2.2-S2V-14B-GGUF)](https://huggingface.co/QuantStack/Wan2.2-S2V-14B-GGUF)
+- [Wan2.2 Lightx2v LoRA](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/loras)
+- [wav2vec2_large_english](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/audio_encoders)
+
+### Qwen Image Edit
+- [Qwen-Image-Edit-GGUF と Qwen_Image-VAE](https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF)
+- [Qwen-Image-Edit-Lightning](https://huggingface.co/lightx2v/Qwen-Image-Lightning)
+- [Qwen2.5-VL-7B-Instruct と Qwen2.5-VL-7B-Instruct-mmproj](https://huggingface.co/unsloth/Qwen2.5-VL-7B-Instruct-GGUF)
 
 ## 実行
 ComfyUI を先に起動してから、ComfyUIGradio2 を 起動してください。
@@ -97,6 +110,9 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## 更新履歴
+- 2025/9/10
+  - Qwen Image Edit 用の uimodule & workflow を追加
+  - 配布パッケージを更新
 - 2025/9/02
   - Wan 2.2 S2V 用の uimodule & workflow を追加
 - 2025/8/31

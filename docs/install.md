@@ -11,7 +11,7 @@
 [ComfyUI-DepthAnythingV2](https://github.com/kijai/ComfyUI-DepthAnythingV2)
 をインストールしてください。
 
-[こちら](https://huggingface.co/asfdrwe/WAI14DMD2-GGUF/resolve/main/ComfyUIGradio2.zip)をクリックして
+[こちら](https://huggingface.co/asfdrwe/WAI14DMD2-GGUF/resolve/main/ComfyUIGradio2-20250910.zip)をクリックして
 ComfyUIGradio2 をダウンロードしてください。ComfyUIGradio2 をインストールしたい
 フォルダにファイルを移動させ、右クリックしすべて展開を選びファイルを展開してください。
 ComfyGradio のフォルダに展開するとこうなります。
@@ -19,15 +19,17 @@ ComfyGradio のフォルダに展開するとこうなります。
 ![install01.png](image/install01.png)
 
 ## モデルのダウンロード
-FLUX KontextとWan2.2のモデルをまとめてダウンロードできるツールを用意してあります。
+FLUX Kontext と Wan2.2 I2V と Wan2.2 S2V と Qwen Image Edit のモデルをまとめて
+ダウンロードできるツールを用意してあります。
 ComfyUIGradio2 フォルダ内にある`model_download.bat` をダブルクリックして実行し、
 `models` フォルダを丸ごと ComfyUI フォルダに移動させてください。
+
 ComfyUIGradio に含まれる ComfyUI を利用している場合、モデルファイルが 2 つ
 重複していますが、上書きして問題ありません。
 
 ![install02.png](image/install02.png)
 
-33.5GB ダウンロードするのでストレージの容量と通信回線容量に気を付けてください。
+50GB 程度ダウンロードするので、ストレージの容量と通信回線容量に気を付けてください。
 
 SDXL モデルは
 [WAI-NSFW-illustrious-SDXL-v14.0](https://civitai.com/models/827184/wai-nsfw-illustrious-sdxl)
@@ -104,16 +106,17 @@ pip install -r requirements.txt
 ```
 
 ## モデル
-適当な SDXL モデルとFLUX KontextとWan2.2のモデルをダウンロードして ComfyUI の`models`フォルダ以下の
-適切なフォルダに移動させてください。
+適当な SDXL モデルと、FLUX Kontext と Wan2.2 I2V と Wan2.2 S2V と Qwen Image Edit の
+モデルをダウンロードして ComfyUI の`models`フォルダ以下の適切なフォルダに
+移動させてください。
 
 | モデル | 場所 |
 |-------|-----|
 | SD1.5、SDXL モデル | chekcpoints |
 | LoRA(DMD2やWan2.2 Lightning等) | loras |
-| FLUX-Kontext-dev GGUF と Wan2.2_I2V-A14B-GGUF| diffusion_models |
-| t5-xxl GGUF と umt5-xxl-encoder-gguf |  clip |
-| FLUX-VAE と wan_2.1_vae | vae |
+| FLUX-Kontext-dev GGUF と Wan2.2_I2V-A14B-GGUF と Wan2.2-S2V-14 と Qwen_Image_Edit | diffusion_models または unet |
+| t5-xxl GGUF と umt5-xxl-encoder-gguf と Qwen2.5-VL-7B-Instruct とQwen2.5-VL-7B-Instruct-mmproj |  clip または text_encoders |
+| FLUX-VAE と wan_2.1_vae と Qwen_Image-VAE | vae |
 
 ### SDXL モデルと LoRA の例
 
@@ -128,12 +131,21 @@ pip install -r requirements.txt
 - [clip_l](https://huggingface.co/comfyanonymous/flux_text_encoders/tree/main)
 - [FLUX-VAE](https://huggingface.co/Comfy-Org/Lumina_Image_2.0_Repackaged)
 
-### Wan 2.2
+### Wan 2.2 I2V
 - [Wan2.2_I2V-A14B-GGUF](https://huggingface.co/bullerwins/Wan2.2-I2V-A14B-GGUF)
 - [umt5-xxl-encoder-gguf](https://huggingface.co/city96/umt5-xxl-encoder-gguf)
 - [wan_2.1_vae](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged))
 - [Wan2.2 Lightx2v LoRA](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/loras)
 
+### Wan 2.2 S2V
+- [Wan2.2-S2V-14B-GGUF)](https://huggingface.co/QuantStack/Wan2.2-S2V-14B-GGUF)
+- [Wan2.2 Lightx2v LoRA](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/loras)
+- [wav2vec2_large_english](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/tree/main/split_files/audio_encoders)
+
+### Qwen Image Edit
+- [Qwen-Image-Edit-GGUF と Qwen_Image-VAE](https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF)
+- [Qwen-Image-Edit-Lightning](https://huggingface.co/lightx2v/Qwen-Image-Lightning)
+- [Qwen2.5-VL-7B-Instruct と Qwen2.5-VL-7B-Instruct-mmproj](https://huggingface.co/unsloth/Qwen2.5-VL-7B-Instruct-GGUF)
 
 ## 実行
 
