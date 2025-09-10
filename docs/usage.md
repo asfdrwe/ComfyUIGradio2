@@ -286,7 +286,7 @@ wan2.2_t2v_lightx2v LoRA、wav2vec2_large_english_fp16.safetensors をダウン�
 ## 画像を文章に基づき編集・生成 (2025/9/10追加)
 Qwen-Image-Edit を利用して文章に基づき画像を編集・生成できます。
 
-`model_download_addition.bat` をダブルクリックすると Qwen-Image-Edit GGUF、
+`model_download_addition2.bat` をダブルクリックすると Qwen-Image-Edit GGUF、
 Qwen2.5-VL-7B-Instruct GGUF、Qwen2.5-VL-7B-Instruct-mmproj-BF16、
 Qwen_Image-VAE.safetensors、Qwen-Image-Edit-Lightning-4steps-V1.0-bf16 をダウンロード
 するので、models フォルダごと ComfyUI のフォルダに移動させてください。
