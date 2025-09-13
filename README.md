@@ -4,7 +4,7 @@ ComfyUIGradio2 は AI を用いて画像や動画の生成等を行う [ComfyUI]
 利用して、 [Gradio](https://www.gradio.app/)による独自のユーザーフェイスを用いて、
 画像生成や動画生成を行うツールです。
 
-- [使い方](https://asfdrwe.github.io/ComfyUIGradio2/)
+# [使い方等の解説文書はここをクリック](https://asfdrwe.github.io/ComfyUIGradio2/)
 
 ## 動作確認環境
 
