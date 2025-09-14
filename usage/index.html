@@ -320,18 +320,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1flux" class="md-nav__link">
+  <a href="#1flux-kontext" class="md-nav__link">
     <span class="md-ellipsis">
-      画像1枚から画像生成(FLUX)
+      画像1枚から画像生成(FLUX Kontext)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2flux-kontext" class="md-nav__link">
     <span class="md-ellipsis">
-      画像2枚から画像生成
+      画像2枚から画像生成(FLUX Kontext)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      画像を文章に基づき編集・生成
     </span>
   </a>
   
@@ -347,7 +356,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       開始画像と終了画像から動画生成
     </span>
@@ -359,15 +368,6 @@
   <a href="#5-15" class="md-nav__link">
     <span class="md-ellipsis">
       開始画像と音声と文章から動画生成(5秒用) (15秒用)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      画像を文章に基づき編集・生成
     </span>
   </a>
   
@@ -523,18 +523,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1flux" class="md-nav__link">
+  <a href="#1flux-kontext" class="md-nav__link">
     <span class="md-ellipsis">
-      画像1枚から画像生成(FLUX)
+      画像1枚から画像生成(FLUX Kontext)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2" class="md-nav__link">
+  <a href="#2flux-kontext" class="md-nav__link">
     <span class="md-ellipsis">
-      画像2枚から画像生成
+      画像2枚から画像生成(FLUX Kontext)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      画像を文章に基づき編集・生成
     </span>
   </a>
   
@@ -550,7 +559,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       開始画像と終了画像から動画生成
     </span>
@@ -562,15 +571,6 @@
   <a href="#5-15" class="md-nav__link">
     <span class="md-ellipsis">
       開始画像と音声と文章から動画生成(5秒用) (15秒用)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      画像を文章に基づき編集・生成
     </span>
   </a>
   
@@ -657,11 +657,11 @@ ComfyUI の方で開けば同じワークフローを実行できます。</p>
 <li>画像と文章から画像生成(SD1.5、SDXL用)(10image11.py, image11.json)</li>
 <li>画像1枚から画像生成(FLUXKontext専用)(10image21.py, image21.json)</li>
 <li>画像2枚から画像生成(FLUXKontext専用)(10image22.py, image22.json)</li>
+<li>画像を文章に基づき編集(Qwen-Image-Edit専用)(10image31.py)</li>
 <li>開始画像から動画生成(Wan2.2 + Lightning専用)(20video01.py, video01.json)</li>
 <li>開始画像と終了画像から動画生成(Wan2.2 + Lightning専用)(20video02.py, video02.json)</li>
 <li>開始画像と音声と文章から動画生成(5秒)(Wan2.2 S2V + Lightning専用)(20video21.py, video21.json)</li>
 <li>開始画像と音声と文章から動画生成(15秒)(Wan2.2 S2V + Lightning専用)(20video22.py, video22.json)</li>
-<li>画像を文章に基づき編集(Qwen-Image-Edit専用)(10image31.py)</li>
 </ul>
 <h2 id="sd15sdxl">文章から画像生成(SD1.5、SDXL用)</h2>
 <p><a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">AUTOMATIC1111</a> に似た
@@ -687,6 +687,10 @@ LoRA は AUTOMATIC1111 と異なり、有効にチェックを入れ、使用す
 <p>幅と高さに生成したい画像の大きさを指定してください。</p>
 <p>ステップ数や CFG、サンプラー、スケジューラーは必要に応じて設定してください。ノイズ除去は 1 にします。
 乱数シードは -1 にするとランダム値になり、それ以外の数値ではその数値をそのまま使用します。</p>
+<p>バッチカウントは指定した回数生成を行います。標準では 1 です。バッチサイズは
+同時に生成する画像数です。標準では 1 です。増やすと指定した枚数の画像を同時に
+生成できますが、生成時間が増え、消費する VRAM が増えるので、大きくしすぎると
+エラーになります。</p>
 <p><img alt="usage01.png" src="../image/usage01.png"></p>
 <p>生成ボタンを押せば右の生成画像に画像が生成されます。</p>
 <p><img alt="usage02.png" src="../image/usage02.png">
@@ -727,7 +731,7 @@ LoRA は AUTOMATIC1111 と異なり、有効にチェックを入れ、使用す
 </code></pre>
 <p><img alt="usage08.png" src="../image/usage08.png">
 <img alt="generated03.png" src="../generated/ComfyUI_00004_.png"></p>
-<h2 id="1flux">画像1枚から画像生成(FLUX)</h2>
+<h2 id="1flux-kontext">画像1枚から画像生成(FLUX Kontext)</h2>
 <p>FLUX Kontext を利用して元画像の特徴などを利用して別な画像を生成します。</p>
 <p><img alt="usage09.png" src="../image/usage09.png"></p>
 <p>モデルを設定してください。<code>model_download.bat</code>でモデルをダウンロードした場合は
@@ -774,7 +778,7 @@ and lace collar, maintaining the same refined quality and soft color tones.
 <p><img alt="usage11.png" src="../image/usage11.png">
 <img alt="generated03.png" src="../generated/ComfyUI_00006_.png"></p>
 <p>白鳥の右手？が変ですが、元の画像の画風を保ちながらプロンプトの英文に従った画像が生成されています。</p>
-<h2 id="2">画像2枚から画像生成</h2>
+<h2 id="2flux-kontext">画像2枚から画像生成(FLUX Kontext)</h2>
 <p>2 枚の画像の特徴を利用して別な画像を生成します。</p>
 <p>モデルは『画像1枚から画像生成(FLUX)』と同じ設定にします。</p>
 <p>『文章から画像生成(SD1.5、SDXL用)』で生成した 2 人の少女画像をアップロードします。</p>
@@ -789,6 +793,26 @@ and lace collar, maintaining the same refined quality and soft color tones.
 <p>生成ボタンを押せば画像が生成されます。</p>
 <p><img alt="usage14.png" src="../image/usage14.png">
 <img alt="generated04.png" src="../generated/ComfyUI_00007_.png"></p>
+<h2 id="_3">画像を文章に基づき編集・生成</h2>
+<p>Qwen-Image-Edit を利用して文章に基づき画像を編集・生成できます。</p>
+<p>参照画像に開始画像をアップロードし、ポジティブプロンプトに編集内容を
+日本語または英語または中国語で書いてください。中国語で書くのが一番画像に
+反映されやすく、次が英語です。日本語で書いた場合うまくいかない場合が
+多いので、そういう場合は Grok 等で編集内容を英語や中国語に翻訳して
+プロンプト欄に入れてください。</p>
+<p>入力画像が大きすぎたり小さすぎたりするとうまく編集できないので、入力画像の拡大縮小後の
+総画素数(100万画素単位)を指定してください。標準では1.0(100万画素)に拡大縮小します。</p>
+<p>画像とプロンプト例</p>
+<p><img alt="usage25.png" src="../image/usage25.png"></p>
+<pre><code>画像の少女を左向きにしてください。
+</code></pre>
+<pre><code>画像の背景を削除して、白背景にしてください。
+</code></pre>
+<p>編集ボタンを押せば画像が生成されます。
+<img alt="generated05.png" src="../generated/ComfyUI_00008_.png">
+<img alt="generated06.png" src="../generated/ComfyUI_00009_.png"></p>
+<p>画像編集だけでなく、参照画像の画風を利用して画像生成するなどさまざまな活用方法があるので、『Qwen image edit 活用例』などで検索してみてください。
+例えば、<a href="https://note.com/yukyu_haruka/n/n70d4726027fc">「Qwen Image Edit」を使って何ができるか簡単に紹介します</a>などが参考になります。</p>
 <h2 id="wan22">開始画像から動画生成(Wan2.2)</h2>
 <p>画面サイズによってはタブがはみ出るので、右上の…を押してください。</p>
 <p><img alt="usage15.png" src="../image/usage15.png"></p>
@@ -838,7 +862,7 @@ and lace collar, maintaining the same refined quality and soft color tones.
 <p>生成ボタンを押せば動画が生成されます。画像より生成時間がかかります。</p>
 <p><img alt="usage18.png" src="../image/usage18.png">
 </p><div class="video-container"><iframe src="../generated/Video_00001_.mp4" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div>
-<h2 id="_3">開始画像と終了画像から動画生成</h2>
+<h2 id="_4">開始画像と終了画像から動画生成</h2>
 <p>開始画像と終了画像と文章から動画を生成します。</p>
 <p>モデルは『開始画像から動画生成(Wan2.2)』と同じように設定してください。</p>
 <p>開始画像と終了画像をアップロードしてください。この例では『文章から画像生成(SD1.5、SDXL用)』で
@@ -867,26 +891,6 @@ and lace collar, maintaining the same refined quality and soft color tones.
 <img alt="usage23.png" src="../image/usage23.png"></p>
 <p>生成ボタンを押せば動画が生成されます。
 </p><div class="video-container"><iframe src="../generated/Video_00003_.mp4" style="position:relative;width:100%;height:22.172vw" frameborder="0" allowfullscreen alt="type:video"></iframe></div>
-<h2 id="_4">画像を文章に基づき編集・生成</h2>
-<p>Qwen-Image-Edit を利用して文章に基づき画像を編集・生成できます。</p>
-<p>参照画像に開始画像をアップロードし、ポジティブプロンプトに編集内容を
-日本語または英語または中国語で書いてください。中国語で書くのが一番画像に
-反映されやすく、次が英語です。日本語で書いた場合うまくいかない場合が
-多いので、そういう場合は Grok 等で編集内容を英語や中国語に翻訳して
-プロンプト欄に入れてください。</p>
-<p>入力画像が大きすぎたり小さすぎたりするとうまく編集できないので、入力画像の拡大縮小後の
-総画素数(100万画素単位)を指定してください。標準では1.0(100万画素)に拡大縮小します。</p>
-<p>画像とプロンプト例</p>
-<p><img alt="usage25.png" src="../image/usage25.png"></p>
-<pre><code>画像の少女を左向きにしてください。
-</code></pre>
-<pre><code>画像の背景を削除して、白背景にしてください。
-</code></pre>
-<p>編集ボタンを押せば画像が生成されます。
-<img alt="generated05.png" src="../generated/ComfyUI_00008_.png">
-<img alt="generated06.png" src="../generated/ComfyUI_00009_.png"></p>
-<p>画像編集だけでなく、参照画像の画風を利用して画像生成するなどさまざまな活用方法があるので、『Qwen image edit 活用例』などで検索してみてください。
-例えば、<a href="https://note.com/yukyu_haruka/n/n70d4726027fc">「Qwen Image Edit」を使って何ができるか簡単に紹介します</a>などが参考になります。</p>
 <h2 id="_5">動作がおかしい場合</h2>
 <h3 id="_6">モデルがない</h3>
 <p>『文章から画像生成(SD1.5、SDXL用)』用のモデルは model_download.bat でダウンロード
