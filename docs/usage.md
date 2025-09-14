@@ -12,11 +12,12 @@ ComfyUI の方で開けば同じワークフローを実行できます。
 - 画像と文章から画像生成(SD1.5、SDXL用)(10image11.py, image11.json)
 - 画像1枚から画像生成(FLUXKontext専用)(10image21.py, image21.json)
 - 画像2枚から画像生成(FLUXKontext専用)(10image22.py, image22.json)
+- 画像を文章に基づき編集(Qwen-Image-Edit専用)(10image31.py)
 - 開始画像から動画生成(Wan2.2 + Lightning専用)(20video01.py, video01.json)
 - 開始画像と終了画像から動画生成(Wan2.2 + Lightning専用)(20video02.py, video02.json)
 - 開始画像と音声と文章から動画生成(5秒)(Wan2.2 S2V + Lightning専用)(20video21.py, video21.json)
 - 開始画像と音声と文章から動画生成(15秒)(Wan2.2 S2V + Lightning専用)(20video22.py, video22.json)
-- 画像を文章に基づき編集(Qwen-Image-Edit専用)(10image31.py)
+
 
 ## 文章から画像生成(SD1.5、SDXL用)
 
@@ -53,6 +54,11 @@ bad quality, worst quality, text, logo
 
 ステップ数や CFG、サンプラー、スケジューラーは必要に応じて設定してください。ノイズ除去は 1 にします。
 乱数シードは -1 にするとランダム値になり、それ以外の数値ではその数値をそのまま使用します。
+
+バッチカウントは指定した回数生成を行います。標準では 1 です。バッチサイズは
+同時に生成する画像数です。標準では 1 です。増やすと指定した枚数の画像を同時に
+生成できますが、生成時間が増え、消費する VRAM が増えるので、大きくしすぎると
+エラーになります。
 
 ![usage01.png](image/usage01.png)
 
@@ -115,7 +121,7 @@ bad quality, worst quality, text, logo
 ![usage08.png](image/usage08.png)
 ![generated03.png](generated/ComfyUI_00004_.png)
 
-## 画像1枚から画像生成(FLUX)
+## 画像1枚から画像生成(FLUX Kontext)
 
 FLUX Kontext を利用して元画像の特徴などを利用して別な画像を生成します。
 
@@ -156,7 +162,7 @@ and lace collar, maintaining the same refined quality and soft color tones.
 
 白鳥の右手？が変ですが、元の画像の画風を保ちながらプロンプトの英文に従った画像が生成されています。
  
-## 画像2枚から画像生成
+## 画像2枚から画像生成(FLUX Kontext)
 
 2 枚の画像の特徴を利用して別な画像を生成します。
 
@@ -181,6 +187,38 @@ Place both cute characters together in one scene where they are hugging.
 
 ![usage14.png](image/usage14.png)
 ![generated04.png](generated/ComfyUI_00007_.png)
+
+
+## 画像を文章に基づき編集・生成
+Qwen-Image-Edit を利用して文章に基づき画像を編集・生成できます。
+
+参照画像に開始画像をアップロードし、ポジティブプロンプトに編集内容を
+日本語または英語または中国語で書いてください。中国語で書くのが一番画像に
+反映されやすく、次が英語です。日本語で書いた場合うまくいかない場合が
+多いので、そういう場合は Grok 等で編集内容を英語や中国語に翻訳して
+プロンプト欄に入れてください。
+
+入力画像が大きすぎたり小さすぎたりするとうまく編集できないので、入力画像の拡大縮小後の
+総画素数(100万画素単位)を指定してください。標準では1.0(100万画素)に拡大縮小します。
+
+画像とプロンプト例
+
+![usage25.png](image/usage25.png)
+
+```
+画像の少女を左向きにしてください。
+```
+```
+画像の背景を削除して、白背景にしてください。
+```
+
+編集ボタンを押せば画像が生成されます。
+![generated05.png](generated/ComfyUI_00008_.png)
+![generated06.png](generated/ComfyUI_00009_.png)
+
+画像編集だけでなく、参照画像の画風を利用して画像生成するなどさまざまな活用方法があるので、『Qwen image edit 活用例』などで検索してみてください。
+例えば、[「Qwen Image Edit」を使って何ができるか簡単に紹介します](https://note.com/yukyu_haruka/n/n70d4726027fc)などが参考になります。
+
 
 ## 開始画像から動画生成(Wan2.2)
 
@@ -274,36 +312,6 @@ Wan 2.2 S2V を利用して開始画像に対して音声に対応する口パ�
 
 生成ボタンを押せば動画が生成されます。
 ![type:video](generated/Video_00003_.mp4)
-
-## 画像を文章に基づき編集・生成
-Qwen-Image-Edit を利用して文章に基づき画像を編集・生成できます。
-
-参照画像に開始画像をアップロードし、ポジティブプロンプトに編集内容を
-日本語または英語または中国語で書いてください。中国語で書くのが一番画像に
-反映されやすく、次が英語です。日本語で書いた場合うまくいかない場合が
-多いので、そういう場合は Grok 等で編集内容を英語や中国語に翻訳して
-プロンプト欄に入れてください。
-
-入力画像が大きすぎたり小さすぎたりするとうまく編集できないので、入力画像の拡大縮小後の
-総画素数(100万画素単位)を指定してください。標準では1.0(100万画素)に拡大縮小します。
-
-画像とプロンプト例
-
-![usage25.png](image/usage25.png)
-
-```
-画像の少女を左向きにしてください。
-```
-```
-画像の背景を削除して、白背景にしてください。
-```
-
-編集ボタンを押せば画像が生成されます。
-![generated05.png](generated/ComfyUI_00008_.png)
-![generated06.png](generated/ComfyUI_00009_.png)
-
-画像編集だけでなく、参照画像の画風を利用して画像生成するなどさまざまな活用方法があるので、『Qwen image edit 活用例』などで検索してみてください。
-例えば、[「Qwen Image Edit」を使って何ができるか簡単に紹介します](https://note.com/yukyu_haruka/n/n70d4726027fc)などが参考になります。
 
 ## 動作がおかしい場合
 

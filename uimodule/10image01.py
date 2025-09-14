@@ -25,11 +25,13 @@ def refresh_models():
             gr.Dropdown(choices = lora_list, label = 'LoRA1', interactive = True),
             gr.Dropdown(choices = lora_list, label = 'LoRA2', interactive = True)]
 
-def generate(checkpoint, checkbox1, lora1, mstr1, cstr1, checkbox2, lora2, mstr2, cstr2, positive, negative, width, height, steps, cfg, seed, sampler, scheduler, denoise, progress = gr.Progress()):
-    if seed == '-1':
-        seed = random.randint(0, sys.maxsize)
-    else:
-        seed = int(seed)
+def generate(checkpoint,
+             checkbox1, lora1, mstr1, cstr1,
+             checkbox2, lora2, mstr2, cstr2,
+             positive, negative,
+             width, batch_count, height, batch_size,
+             steps, cfg, seed, sampler, scheduler, denoise, progress = gr.Progress()):
+
     prompt_file = open('workflow/image01.json', 'r')
     prompt = json.load(prompt_file)
 
@@ -64,21 +66,30 @@ def generate(checkpoint, checkbox1, lora1, mstr1, cstr1, checkbox2, lora2, mstr2
 
     prompt['5']['inputs']['width'] = width
     prompt['5']['inputs']['height'] = height
+    prompt['5']['inputs']['batch_size'] = batch_size
+    print(batch_size)
 
     prompt['3']['inputs']['steps'] = steps
     prompt['3']['inputs']['cfg'] = cfg
-    prompt['3']['inputs']['seed'] = seed
+
     prompt['3']['inputs']['sampler_name'] = sampler
     prompt['3']['inputs']['scheduler'] = scheduler
     prompt['3']['inputs']['denoise'] = float(denoise)
 
-    print(prompt)
-
     print('SERVER: ' + server_address)
 
-    image = comfyutils.get_image(prompt, server_address)
+    images_output = []
 
-    return image
+    for i in range(int(batch_count)):
+        if seed == '-1':
+            newseed = random.randint(0, sys.maxsize)
+        else:
+            newseed = int(seed)
+        prompt['3']['inputs']['seed'] = newseed
+        print(prompt)
+        images_output.extend(comfyutils.get_images(prompt, server_address))
+
+    return images_output
 
 def create(addr):
     global server_address
@@ -107,8 +118,12 @@ def create(addr):
             with gr.Column():
                 positive = gr.Textbox(label = 'ポジティブプロンプト')
                 negative = gr.Textbox(label = 'ネガティブプロンプト')
-                width  = gr.Slider(label = '幅', minimum = 0, maximum = 2048, value = 1024, step = 8, interactive = True)
-                height = gr.Slider(label = '高さ', minimum = 0, maximum = 2048, value = 1024, step = 8, interactive = True)
+                with gr.Row():
+                    width  = gr.Slider(label = '幅', minimum = 0, maximum = 2048, value = 1024, step = 8, interactive = True)
+                    batch_count = gr.Slider(label = 'バッチカウント', value = 1, minimum = 1, step = 1)
+                with gr.Row():
+                    height = gr.Slider(label = '高さ', minimum = 0, maximum = 2048, value = 1024, step = 8, interactive = True)
+                    batch_size = gr.Slider(label = 'バッチサイズ', value = 1, minimum = 1, step = 1)
                 steps  = gr.Slider(label = 'ステップ数', minimum = 1, maximum = 50, value = 20, step = 1, interactive = True)
                 cfg    = gr.Slider(label = 'CFG', minimum = 1, maximum = 20, value = 7, step = 1, interactive = True)
                 denoise = gr.Slider(label = 'ノイズ除去', value = 1.0, minimum = 0.0, step = 0.01, maximum = 1.0, interactive = True)
@@ -120,10 +135,15 @@ def create(addr):
 
             with gr.Column():
                 generate_button = gr.Button('画像生成')
-                image = gr.Image(label = '生成画像', interactive = None, type = 'filepath')
+                images = gr.Gallery(label = '生成画像', interactive = None, object_fit = 'scale-down')
 
                 generate_button.click(fn = generate,
-                                      inputs = [checkpoint, checkbox1, lora1, mstr1, cstr1, checkbox2, lora2, mstr2, cstr2, positive, negative, width, height, steps, cfg, seed, sampler, scheduler, denoise],
-                                      outputs = image)
+                                      inputs = [checkpoint,
+                                                checkbox1, lora1, mstr1, cstr1,
+                                                checkbox2, lora2, mstr2, cstr2,
+                                                positive, negative,
+                                                width, batch_count, height, batch_size,
+                                                steps, cfg, seed, sampler, scheduler, denoise],
+                                      outputs = images)
 
 print("MODULE: 10image01")

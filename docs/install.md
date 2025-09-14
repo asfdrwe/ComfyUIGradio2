@@ -11,7 +11,7 @@
 [ComfyUI-DepthAnythingV2](https://github.com/kijai/ComfyUI-DepthAnythingV2)
 をインストールしてください。
 
-[こちら](https://huggingface.co/asfdrwe/WAI14DMD2-GGUF/resolve/main/ComfyUIGradio2-20250910.zip)をクリックして
+[こちら](https://huggingface.co/asfdrwe/WAI14DMD2-GGUF/resolve/main/ComfyUIGradio2-20250914.zip)をクリックして
 ComfyUIGradio2 をダウンロードしてください。ComfyUIGradio2 をインストールしたい
 フォルダにファイルを移動させ、右クリックしすべて展開を選びファイルを展開してください。
 ComfyGradio のフォルダに展開するとこうなります。

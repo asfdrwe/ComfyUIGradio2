@@ -33,11 +33,7 @@ def refresh_models():
         gr.Dropdown(choices = vae_list, label  = 'VAE' , interactive = True)
     ]
 
-def generate(unet, checkbox, lora, strength, clip, vae, image, positive, pixels, seed, progress = gr.Progress()):
-    if seed == '-1':
-        seed = random.randint(0, sys.maxsize)
-    else:
-        seed = int(seed)
+def generate(unet, checkbox, lora, strength, clip, vae, image, positive, batch_count, pixels, seed, progress = gr.Progress()):
     prompt_file = open('workflow/image31.json', 'r')
     prompt = json.load(prompt_file)
 
@@ -56,13 +52,20 @@ def generate(unet, checkbox, lora, strength, clip, vae, image, positive, pixels,
     prompt['93']['inputs']['megapixels'] = pixels
     prompt['3']['inputs']['seed'] = seed
 
-    print(prompt)
-
     print('SERVER: ' + server_address)
 
-    video = comfyutils.get_image(prompt, server_address)
+    images_output = []
 
-    return video
+    for i in range(int(batch_count)):
+        if seed == '-1':
+            newseed = random.randint(0, sys.maxsize)
+        else:
+            newseed = int(seed)
+        prompt['3']['inputs']['seed'] = newseed
+        print(prompt)
+        images_output.extend(comfyutils.get_images(prompt, server_address))
+
+    return images_output
 
 def create(addr):
     global server_address
@@ -96,12 +99,13 @@ def create(addr):
             with gr.Column():
                 baseimage = gr.Image(label = '参照画像', type = 'filepath')
                 positive = gr.Textbox(label = 'ポジティブプロンプト')
+                batch_count = gr.Slider(label = 'バッチカウント', value = 1, minimum = 1, step = 1)
                 megapixels = gr.Slider(label = '総画素数(100万画素単位)', minimum = 0.0, maximum = 10.0, value = 1.0, step = 0.01, interactive = True)
                 seed   = gr.Textbox(label = '乱数シード(-1でランダム)', value = -1)
 
             with gr.Column():
                 generate_button = gr.Button('編集')
-                image = gr.Image(label = '生成画像', type = 'filepath')
+                images = gr.Gallery(label = '生成画像', interactive = None, object_fit = 'scale-down')
 
                 generate_button.click(fn = generate, inputs = [
                         unet, 
@@ -109,8 +113,9 @@ def create(addr):
                         clip, vae, 
                         baseimage, 
                         positive,
+                        batch_count,
                         megapixels, 
                         seed], 
-                    outputs = image)
+                    outputs = images)
 
 print("MODULE: 10video31")

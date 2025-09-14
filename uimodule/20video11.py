@@ -67,7 +67,7 @@ def generate(unethigh, checkboxhigh, lorahigh, strhigh, unetlow, checkboxlow, lo
     prompt['67']['inputs']['height'] = height
     prompt['67']['inputs']['length'] = length
 
-    prompt['57']['inputs']['seed'] = seed
+    prompt['57']['inputs']['noise_seed'] = seed
 
     print(prompt)
 

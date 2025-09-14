@@ -33,11 +33,14 @@ def refresh_models():
         gr.Dropdown(choices = vae_list, label  = 'VAE' , interactive = True)
     ]
 
-def generate(unethigh, checkboxhigh, lorahigh, strhigh, unetlow, checkboxlow, loralow, strlow, clip, vae, image, positive, width, height, length, seed, progress = gr.Progress()):
-    if seed == '-1':
-        seed = random.randint(0, sys.maxsize)
-    else:
-        seed = int(seed)
+def generate(unethigh,
+             checkboxhigh, lorahigh, strhigh, unetlow,
+             checkboxlow, loralow, strlow, clip, vae,
+             image,
+             positive,
+             width, batch_count, height, batch_size,
+             length, seed, progress = gr.Progress()):
+
     prompt_file = open('workflow/video01.json', 'r')
     prompt = json.load(prompt_file)
 
@@ -63,21 +66,28 @@ def generate(unethigh, checkboxhigh, lorahigh, strhigh, unetlow, checkboxlow, lo
     prompt['98']['inputs']['width'] = width
     prompt['98']['inputs']['height'] = height
     prompt['98']['inputs']['length'] = length
-
-    prompt['86']['inputs']['noise_seed'] = seed
-
-    print(prompt)
+    prompt['98']['inputs']['batch_size'] = batch_size
 
     print('SERVER: ' + server_address)
 
-    video = comfyutils.get_image(prompt, server_address)
+    videos_output = []
 
-    return video
+    for i in range(int(batch_count)):
+        if seed == '-1':
+            newseed = random.randint(0, sys.maxsize)
+        else:
+            newseed = int(seed)
+        prompt['86']['inputs']['noise_seed'] = newseed
+        print(prompt)
+        videos_output.extend(comfyutils.get_images(prompt, server_address))
+
+    return videos_output
 
 def create(addr):
     global server_address
     server_address = addr
     print('SERVER: ' + server_address)
+
     with gr.Tab('開始画像と文章から動画生成(Wan2.2)'):
         with gr.Row():
             with gr.Column():
@@ -112,14 +122,18 @@ def create(addr):
             with gr.Column():
                 baseimage = gr.Image(label = '参照画像', type = 'filepath')
                 positive = gr.Textbox(label = 'ポジティブプロンプト')
-                width  = gr.Slider(label = '幅', minimum = 0, maximum = 2048, value = 360, step = 8, interactive = True)
-                height = gr.Slider(label = '高さ', minimum = 0, maximum = 2048, value = 640, step = 8, interactive = True)
+                with gr.Row():
+                    width  = gr.Slider(label = '幅', minimum = 0, maximum = 2048, value = 360, step = 8, interactive = True)
+                    batch_count = gr.Slider(label = 'バッチカウント', value = 1, minimum = 1, step = 1)
+                with gr.Row():
+                    height = gr.Slider(label = '高さ', minimum = 0, maximum = 2048, value = 640, step = 8, interactive = True)
+                    batch_size = gr.Slider(label = 'バッチサイズ', value = 1, minimum = 1, step = 1)
                 length = gr.Slider(label = 'フレーム数(FPS=16)', minimum = 1, maximum = 161, value = 81, step = 16, interactive = True)
                 seed   = gr.Textbox(label = '乱数シード(-1でランダム)', value = -1)
 
             with gr.Column():
                 generate_button = gr.Button('動画生成')
-                video = gr.Video(label = '生成動画', interactive = None, loop = True, autoplay = True)
+                videos = gr.Gallery(label = '生成画像', interactive = None, object_fit = 'scale-down')
 
                 generate_button.click(fn = generate, inputs = [
                         unethigh, checkboxhigh, lorahigh, strhigh,
@@ -127,8 +141,8 @@ def create(addr):
                         clip, vae, 
                         baseimage, 
                         positive,
-                        width, height, length, 
+                        width, batch_count, height, batch_size, length,
                         seed], 
-                    outputs = video)
+                    outputs = videos)
 
 print("MODULE: 20video01")

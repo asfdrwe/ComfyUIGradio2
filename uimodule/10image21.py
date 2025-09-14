@@ -29,12 +29,7 @@ def refresh_models():
         gr.Dropdown(choices = vae_list, label  = 'VAE' , interactive = True)
     ]
 
-def generate(unet, clip1, clip2, vae,  image, positive, steps, cfg, seed, sampler, scheduler, denoise, progress = gr.Progress()):
-    if seed == '-1':
-        seed = random.randint(0, sys.maxsize)
-    else:
-        seed = int(seed)
-
+def generate(unet, clip1, clip2, vae,  image, positive, batch_count, steps, cfg, seed, sampler, scheduler, denoise, progress = gr.Progress()):
     print(image)
     baseimage_name = comfyutils.upload_data(image, server_address)
 
@@ -52,18 +47,24 @@ def generate(unet, clip1, clip2, vae,  image, positive, steps, cfg, seed, sample
 
     prompt['5']['inputs']['steps'] = steps
     prompt['5']['inputs']['cfg'] = cfg
-    prompt['5']['inputs']['seed'] = seed
     prompt['5']['inputs']['sampler_name'] = sampler
     prompt['5']['inputs']['scheduler'] = scheduler
     prompt['5']['inputs']['denoise'] = float(denoise)
 
-    print(prompt)
-
     print('SERVER: ' + server_address)
 
-    image = comfyutils.get_image(prompt, server_address)
+    images_output = []
 
-    return image
+    for i in range(int(batch_count)):
+        if seed == '-1':
+            newseed = random.randint(0, sys.maxsize)
+        else:
+            newseed = int(seed)
+        prompt['5']['inputs']['seed'] = newseed
+        print(prompt)
+        images_output.extend(comfyutils.get_images(prompt, server_address))
+
+    return images_output
 
 def create(addr):
     global server_address
@@ -79,6 +80,7 @@ def create(addr):
             with gr.Column():
                 baseimage = gr.Image(label = '入力画像', type = 'filepath')
                 positive = gr.Textbox(label = 'ポジティブプロンプト')
+                batch_count = gr.Slider(label = 'バッチカウント', value = 1, minimum = 1, step = 1)
                 steps  = gr.Slider(label = 'ステップ数', minimum = 1, maximum = 50, value = 20, step = 1, interactive = True)
                 cfg    = gr.Slider(label = 'CFG', minimum = 1, maximum = 20, value = 1.0, step = 0.1, interactive = True)
                 denoise = gr.Slider(label = 'ノイズ除去', value = 1.00, minimum = 0.0, step = 0.01, maximum = 1.0, interactive = True)
@@ -90,13 +92,14 @@ def create(addr):
 
             with gr.Column():
                 generate_button = gr.Button('画像生成')
-                image = gr.Image(label = '生成画像', interactive = None, type = 'filepath')
+                images = gr.Gallery(label = '生成画像', interactive = None, object_fit = 'scale-down')
 
                 generate_button.click(fn = generate,
                                       inputs = [unet, clip1, clip2, vae,
                                                 baseimage,
                                                 positive,
+                                                batch_count,
                                                 steps, cfg, seed, sampler, scheduler, denoise],
-                                      outputs = image)
+                                      outputs = images)
 
 print("MODULE: 10image21")
