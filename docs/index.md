@@ -15,4 +15,4 @@ ComfyUIGradio2 は AI を用いて画像や動画の生成等を行う [ComfyUI]
 可能だと思います。動画生成は NVIDIA の VRAM 12GB 以上のグラフィックボードと
 メインメモリ 32GB 以上ないと困難だと思います。
 
-NVIDIA 以外の環境は基本的には Linux 上で AMD Radeon RX 7800 XT でしか動作確認していません。 Radeon では ComfyUI のオプションを細かく指定しないとうまく動かない上に、Wan による動画生成も手元では動いていないので非推奨です
+NVIDIA 以外の環境は基本的には Linux 上で AMD Radeon RX 7800 XT でしか動作確認していません。 Radeon では ComfyUI を色々設定しないとうまく動かないので非推奨です
