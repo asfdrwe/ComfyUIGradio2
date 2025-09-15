@@ -192,6 +192,15 @@ Place both cute characters together in one scene where they are hugging.
 ## 画像を文章に基づき編集・生成(Qwen-Image-Edit)
 Qwen-Image-Edit を利用して文章に基づき画像を編集・生成できます。
 
+モデルを設定してください。`model_download.bat`でモデルをダウンロードした場合は
+次のように設定してください。
+
+|       | モデル名 |
+|-------|-------|
+|Qwen Image Edit モデル | Qwen_Image_Edit-Q4_K_M.gguf |
+|テキストエンコーダ | Qwen2.5-VL-7B-Instruct-Q4_K_M.gguf |
+|VAE | Qwen_Image-VAE.safetensors |
+
 参照画像に開始画像をアップロードし、ポジティブプロンプトに編集内容を
 日本語または英語または中国語で書いてください。中国語で書くのが一番画像に
 反映されやすく、次が英語です。日本語で書いた場合うまくいかない場合が
